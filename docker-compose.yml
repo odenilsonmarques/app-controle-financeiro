@@ -1,0 +1,56 @@
+version: "3.3"
+
+services:
+  #custom-image
+  app-laravel:
+    build:
+      args:
+        user: odenilson
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: odenilson/app-controle-financeiro
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www/
+    restart: always
+    networks:
+      - net-laravel-docker
+
+  #nginx
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - net-laravel-docker
+
+  # db
+  mysql:
+    image: mysql:5.7.22
+    restart: always
+    ports:
+      - 3305:3306
+    volumes:
+      - ./.docker/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - net-laravel-docker
+
+  #redis
+  redis:
+    image: redis:latest
+    networks:
+      - net-laravel-docker
+
+networks:
+  net-laravel-docker:
+    driver: bridge
