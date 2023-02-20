@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <title>@yield('title')</title>
 </head>
 <body>
     <header class="mb-5">
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#1A1A40">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     Financeiro

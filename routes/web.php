@@ -10,5 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/release/create',[ReleaseController::class, 'create'])->name('release.create');
+Route::get('/releases/create',[ReleaseController::class, 'create'])->name('releases.create');
+Route::post('/releases',[ReleaseController::class, 'store'])->name('releases.store');
+
 
