@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdateReleaseFormRequest;
 use App\Models\Release;
+use Illuminate\Http\Request;
 
 class ReleaseController extends Controller
 {
@@ -13,7 +14,7 @@ class ReleaseController extends Controller
         return view('releases.add');
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateReleaseFormRequest $request)
     {
         // dd($request->all());
         Release::create($request->all());

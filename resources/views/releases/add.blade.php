@@ -6,6 +6,15 @@
     <div class="container">
         <div class="row release-financial">
             <div class="col-sm-5 mt-5">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <img src="{{asset('assets/img/finance.svg')}}" width="300px" height="300px" alt="imagem cadastro lançamento">
             </div>
             <div class="col-sm-7 mt-5">
@@ -60,7 +69,7 @@
                                 <div class="col-sm-12 mt-3">
                                     <label for="description" class="form-label">Descrição</label>
                                     {{-- <input type="text" name="description" value="{{old('description')}}" class="form-control"  maxlegth="30" placeholder="Digite a descrição"> --}}
-                                    <textarea class="form-control" name="description"  placeholder="Digite uma descrição" aria-label="With textarea" required></textarea>
+                                    <textarea class="form-control" name="description" placeholder="Digite uma descrição" aria-label="With textarea" required>{{old('description')}}</textarea>
                                 </div>
                             </div>
                             <div class="row">
