@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ReleaseController extends Controller
 {
+    public function index()
+    {
+        $releases = Release:: all();
+        return view('releases.index');
+        // dd($releases);
+    }
    
     public function create() 
     { 
@@ -18,5 +24,7 @@ class ReleaseController extends Controller
     {
         // dd($request->all());
         Release::create($request->all());
+        return redirect()->route('releases.index');
+
     }
 }
