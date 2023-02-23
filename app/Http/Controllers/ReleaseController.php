@@ -10,7 +10,7 @@ class ReleaseController extends Controller
     public function index()
     {
         $releases = Release:: all();
-        return view('releases.index');
+        return view('releases.index',compact('releases'));
         // dd($releases);
     }
    
