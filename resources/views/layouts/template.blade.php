@@ -27,10 +27,10 @@
                             <a class="nav-link" href="#">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Lançamentos</a>
+                            <a class="nav-link" href="{{route('releases.index')}}">Lançamentos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Lançar</a>
+                            <a class="nav-link" href="{{route('releases.create')}}">Lançar</a>
                         </li>
                     </ul>
                 </nav>

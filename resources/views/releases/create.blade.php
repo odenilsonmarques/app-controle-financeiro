@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title','cadastro de lançamento')
+@section('title','Cadastro de lançamento')
 
 @section('content')
     <div class="container">

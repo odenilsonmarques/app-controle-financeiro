@@ -13,3 +13,13 @@ button a{
 .card{
     background-color: #F5F5F5;
 }
+
+
+.header-table{
+    background-color: #6c63ff;
+}
+
+table th
+{
+    color:#FFF;
+}
