@@ -38,4 +38,15 @@ class ReleaseController extends Controller
 
         return view('releases.edit', compact('releases', 'selectedReleases','selectedMonths'));
     }
+
+    public function update(StoreUpdateReleaseFormRequest $request, $id)
+    {
+        if(!$releases = Release::find($id))
+            return redirect()->route('releases.index');
+
+        // dd($request->all());
+        $releases->update($request->all());
+        return redirect()->route('releases.index')
+        ->with('messageEdit', 'Lançamento atualizado com sucesso !');
+    }
 }

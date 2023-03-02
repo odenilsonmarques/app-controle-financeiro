@@ -19,9 +19,11 @@
 
             <div class="col-sm-7 mt-5">
                 <div class="card">
-                    <div class="card-header">Cadastro de Lançamento</div>
+                    <div class="card-header">Atualiazação de Lançamento</div>
                     <div class="card-body">
-                        <form action="{{route('releases.store')}}" method="POST">
+                        <form action="{{route('releases.update', $releases->id)}}" method="POST"> 
+                            {{-- na rota esse verbo é clarado como put, porem aqui no form passa-se como post, pois não existe no form rota do tipo put, porém por trás está rodando uma rota put, na diretiva abaixo se resposabiliza por essa tarefa --}}
+                            @method('PUT')
                             @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
                             <div class="row">
                                 <div class="col-sm-12">
@@ -71,7 +73,7 @@
                             <div class="row">
                                 <div class="col-sm-6 mt-4">
                                     <button class="btn btn-danger"><a href="#">CANCELAR</a></button>
-                                    <button type="submit" class="btn btn-success">CADASTRAR</button>
+                                    <button type="submit" class="btn btn-success">SALVAR</button>
                                 </div>
                             </div>
                         </form>
