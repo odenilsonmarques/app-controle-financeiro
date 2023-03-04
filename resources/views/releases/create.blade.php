@@ -5,6 +5,7 @@
     <div class="container">
         <div class="row release-financial">
             <div class="col-sm-5 mt-5">
+
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -15,6 +16,7 @@
                     </div>
                 @endif
                 <img src="{{asset('assets/img/finance.svg')}}" width="300px" height="300px" alt="imagem cadastro lançamento">
+
             </div>
 
             <div class="col-sm-7 mt-5">
@@ -44,7 +46,7 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="amount" class="form-label">Valor</label>
-                                    <input type="text" name="amount" id="amount" value="{{old('amount')}}" class="form-control" onkeyup="formatCoin();"  placeholder="R$">
+                                    <input type="text" name="amount" id="amount" value="{{old('amount')}}" class="form-control" onkeyup="formatCoin();"  placeholder="R$" required>
                                 </div>
                             </div>
 
