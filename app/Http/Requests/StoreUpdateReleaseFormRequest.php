@@ -27,7 +27,7 @@ class StoreUpdateReleaseFormRequest extends FormRequest
             //a validacao abaixo poderia ser separada por uma barra, porem é apenas uma outra forma de fazer. No meu caso, preferir usar um array
             'release_type'=>['required'],
             'person'=>['required','string','min:3','max:25'],
-            'amount'=>['required'],
+            'amount'=>['required','string'],
             'month'=>['required'],
             'description'=>['required','string','min:3','max:25']
         ];
@@ -40,6 +40,7 @@ class StoreUpdateReleaseFormRequest extends FormRequest
             'person.min'=>'O campo pessoa deve ter no mínimo 3 caractres',
             'person.max'=>'O campo pessoa deve ter no maximo 25 caractres',
             'amount.required'=>'O campo valor é obrigatório',
+            // 'amount.numeric'=>'O campo valor aceita somente numero',
             'month.required'=>'O campo mês é obrigatório',
             'description.required'=>'O campo descrição é obrigatório',
             'description.min'=>'O campo descrição deve ter no mínimo 3 caractres',

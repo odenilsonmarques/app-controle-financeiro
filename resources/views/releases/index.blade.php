@@ -40,7 +40,8 @@
                                     <td>{{$release->id}}</td>
                                     <td>{{$release->release_type}}</td>
                                     <td>{{$release->person}}</td>
-                                    <td>{{$release->amount}}</td>
+                                    <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
+                                    {{-- <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td> --}}
                                     <td>{{$release->month}}</td>
                                     <td>{{$release->description}}</td>
                                     <td>

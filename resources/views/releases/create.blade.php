@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="amount" class="form-label">Valor</label>
-                                    <input type="text" name="amount" id="amount" value="{{old('amount')}}" class="form-control" onkeyup="formatCoin();" placeholder="R$" required>
+                                    <input type="text" name="amount" id="amount" value="{{old('amount')}}" class="form-control" onkeyup="formatCoin();"  placeholder="R$">
                                 </div>
                             </div>
 

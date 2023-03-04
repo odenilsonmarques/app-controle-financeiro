@@ -19,6 +19,7 @@ class Release extends Model
 
     //utilizando o recurso mutators para especificar os padrões que desejo inserir na banco de dados
     //utilizei o nome das variaveis igual aos campo, mas poderia ser outro nome
+  
     public function setAmountAttribute($amount)
     {
         $this->attributes['amount'] = str_replace(['.',','],['','.'],$amount);
