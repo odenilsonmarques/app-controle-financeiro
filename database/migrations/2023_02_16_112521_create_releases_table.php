@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('release_type');
             $table->string('person');
             $table->string('description');
-            $table->decimal('amount', 12,2);
+            $table->double('amount', 10,2)->default(0);
             $table->string('month');
             $table->timestamps();
         });

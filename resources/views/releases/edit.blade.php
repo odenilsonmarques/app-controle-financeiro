@@ -48,7 +48,7 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="amount" class="form-label">Valor</label>
-                                    <input type="text" name="amount" id="amount" value="{{$releases->amount}}" class="form-control" onkeyup="formatCoin();" placeholder="R$" required>
+                                    <input type="text" name="amount" id="amount" value="{{number_format($releases->amount, 2, ',', '.')}}" class="form-control" onkeyup="formatCoin();" placeholder="R$">
                                 </div>
                             </div>
 
