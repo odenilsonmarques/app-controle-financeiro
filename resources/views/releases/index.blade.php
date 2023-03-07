@@ -27,6 +27,42 @@
                     </div>
                 @endif
 
+                <div class="row">
+                    <div class="col-lg-8 mt-2">
+                        <div class="input-group">
+                            <form action="{{route('releases.search')}}" method="POST" class="form-horizontal">
+                                @csrf
+                                <div class="input-group mb-3">
+                                    <select name="release_type" id="release_type" class="form-select  inputSearch">
+                                        <option selected>Selecione o lançamento</option>
+                                        <option value="Despesa">Despesa</option>
+                                        <option value="Receita">Receita</option>
+                                    </select>
+                                    {{-- <select name="month" id="month" class="form-select  inputSearch">
+                                        <option selected>Selecione o mês</option>
+                                        <option value="Janeiro">Janeiro</option>
+                                        <option value="Fevereiro">Fevereiro</option>
+                                        <option value="Março">Março</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Maio">Maio</option>
+                                        <option value="Junho">Junho</option>
+                                        <option value="Julho">Julho</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Setembro">Setembro</option>
+                                        <option value="Outubro">Outubro</option>
+                                        <option value="Novembro">Novembro</option>
+                                        <option value="Dezembro">Dezembro</option>
+                                    </select>
+                                    <input type="text" name="person" class="form-control inputSearch pl-2" placeholder="Pessoa"> --}}
+                                    <div class="input-group-append ml-3">
+                                      <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="table-responsive">
                     <table class="table table table-striped table-hover">
                         <thead class="table header-table">
@@ -59,6 +95,10 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="justify-content-left pagination">
+                        {{$releases->links('pagination::bootstrap-4')}}
+                    </div>
+                    
                 </div>
             </div>
         </div>

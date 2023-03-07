@@ -1,6 +1,4 @@
-.release-financial{
-    /* border: 1px solid red; */
-}
+
 .card-header{
     background-color: #6c63ff;
     color: #fff;
@@ -22,4 +20,8 @@ button a{
 table th
 {
     color:#FFF;
+}
+
+.inputSearch{
+    margin-right:3px;
 }

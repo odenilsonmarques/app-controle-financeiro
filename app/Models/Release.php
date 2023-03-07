@@ -24,4 +24,21 @@ class Release extends Model
     {
         $this->attributes['amount'] = str_replace(['.',','],['','.'],$amount);
     }
+
+
+
+      //Nesse caso, passou-se o paramentro search, caso seja passado algo no campo de busca é atribuido um  valor a variavel query que recebe o valor de search, caso não, não mostra nada
+      public function search(Array $search)
+      {
+          //atribuindo o valor da busca a variavel releases
+          $releases = $this->where(function ($query) use ($search) {
+  
+            if(isset($search['release_type'])){
+                $query->where('release_type', $search['release_type']);
+            }
+
+          });
+         
+          return $releases;
+      }
 }
