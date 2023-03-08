@@ -52,8 +52,8 @@
                                         <option value="Outubro">Outubro</option>
                                         <option value="Novembro">Novembro</option>
                                         <option value="Dezembro">Dezembro</option>
-                                    </select>
-                                    <input type="text" name="person" class="form-control inputSearch pl-2" placeholder="Pessoa"> --}}
+                                    </select> --}}
+                                    <input type="text" name="person" id="person" class="form-control inputSearch pl-2" placeholder="Pessoa">
                                     <div class="input-group-append ml-3">
                                       <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
                                     </div>
@@ -98,7 +98,6 @@
                     <div class="justify-content-left pagination">
                         {{$releases->links('pagination::bootstrap-4')}}
                     </div>
-                    
                 </div>
             </div>
         </div>

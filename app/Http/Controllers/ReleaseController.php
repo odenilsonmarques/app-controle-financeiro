@@ -7,21 +7,14 @@ use Illuminate\Http\Request;
 
 class ReleaseController extends Controller
 {
-    private $totalPage = 2;
+    // private $totalPage = 2;
 
-    public function index(Release $release)
-    {
-        $releases = Release:: paginate($this->totalPage);
-        return view('releases.index',compact('releases'));
-    }
-
-    // public function search(Request $request, Release $release)
+    // public function index(Release $release)
     // {
-    //     // dd('FilterReleaseController@search');
-    //     $dataForm = $request->except('_token');//não exibindo o token sa requisição
-    //     $releases = $release->search($dataForm);
-    //     return view('releases.index', compact('releases'));
+    //     $releases = Release:: paginate($this->totalPage);
+    //     return view('releases.index',compact('releases'));
     // }
+
    
     public function create() 
     { 
