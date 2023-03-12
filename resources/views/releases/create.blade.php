@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="person" class="form-label">Pessoa</label>
-                                    <input type="text" name="person" value="{{old('person')}}" class="form-control"  maxlength="30" placeholder="Digite o nome" required> 
+                                    <input type="text" name="person" id="person" value="{{old('person')}}" class="form-control"  maxlength="30" placeholder="Digite o nome" required> 
                                 </div>
                             </div>
 
