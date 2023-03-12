@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-9 mt-2">
                         <div class="input-group">
-                            <form action="{{route('search.filter')}}" method="POST" class="form-horizontal">
+                            <form action="{{route('releases.filter')}}" method="POST" class="form-horizontal">
                                 @csrf
                                 <div class="input-group mb-4">
                                     <select name="release_type" id="release_type" class="form-select  inputSearch">
@@ -43,6 +43,16 @@
                                         <option value="">-- Busca por mês --</option>
                                         <option value="Janeiro">Janeiro</option>
                                         <option value="Fevereiro">Fevereiro</option>
+                                        <option value="Março">Março</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Maio">Maio</option>
+                                        <option value="Junho">Junho</option>
+                                        <option value="Julho">Julho</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Setembro">Setembro</option>
+                                        <option value="Outubro">Outubro</option>
+                                        <option value="Novembro">Novembro</option>
+                                        <option value="Dezembro">Dezembro</option>
                                     </select>
 
                                     <input type="text" name="person" id="person" class="form-control inputSearch" placeholder="Busca por pessoa">

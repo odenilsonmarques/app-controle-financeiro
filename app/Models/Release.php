@@ -25,9 +25,6 @@ class Release extends Model
         $this->attributes['amount'] = str_replace(['.',','],['','.'],$amount);
     }
 
-
-
-
     //Nesse caso, passou-se o paramentro data, caso seja passado algo no campo de busca é atribuido um  valor a variavel query que recebe o valor de data, caso não, não mostra nada
     public function search(Array $search, $totalPage)
     {

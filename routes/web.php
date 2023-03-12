@@ -15,7 +15,7 @@ Route::post('/releases',[ReleaseController::class, 'store'])->name('releases.sto
 Route::get('/releases/{id}/edit',[ReleaseController::class, 'edit'])->name('releases.edit');
 Route::put('/releases/{id}',[ReleaseController::class, 'update'])->name('releases.update');
 Route::get('/releases/{id}',[ReleaseController::class, 'destroy'])->name('releases.destroy');
-Route::any('/search',[FilterReleaseController::class,'filter'])->name('search.filter');
+Route::any('releases/search',[FilterReleaseController::class,'filter'])->name('releases.filter');
 // Route::any('/releases/search',[FilterReleaseController::class, 'search'])->name('releases.search');
 // Route::any('/releases/search',[ReleaseController::class, 'search'])->name('releases.search');
 
