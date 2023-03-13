@@ -24,7 +24,7 @@
                             <a class="nav-link" href="#">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Dashboard</a>
+                            <a class="nav-link" href="{{route('releases.dash')}}">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('releases.index')}}">Lançamentos</a>

@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\FilterReleaseController;
 use App\Http\Controllers\ReleaseController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('releases/dashboard',[DashboardController::class, 'dash'])->name('releases.dash');
 
 Route::get('/releases',[ReleaseController::class, 'index'])->name('releases.index');
 Route::get('/releases/create',[ReleaseController::class, 'create'])->name('releases.create');
