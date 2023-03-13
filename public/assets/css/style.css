@@ -25,3 +25,20 @@ table th
 .inputSearch{
     margin-right:5px;
 }
+.pa-expense{
+    background-color: #FFF;
+    border-radius: 20px;
+    margin-left: 2px;
+    color: red;
+}
+
+.pa-renevue{
+    background-color: #FFF;
+    border-radius: 20px;
+    margin-left: 2px;
+    color: green;
+}
+
+.row-red{
+    color:red;
+}

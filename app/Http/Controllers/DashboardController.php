@@ -19,13 +19,6 @@ class DashboardController extends Controller
 
         $sumExpenseValues = Release::where('release_type', '=', 'Despesa')->sum('amount');
 
-
-
-
-        
-
-
-
         // dd($allRecipes);
 
         return view('dashboard.dashboard',[
@@ -34,11 +27,7 @@ class DashboardController extends Controller
             'totalExpenses'=>$totalExpenses,
             'sumRenevueValues'=>$sumRenevueValues,
             'sumExpenseValues'=>$sumExpenseValues,
-
         ]);
-
-
-
 
     }
 }
