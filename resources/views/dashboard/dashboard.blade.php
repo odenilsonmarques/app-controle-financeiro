@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row card-dashboard">
             <div class="col-sm-3 text-center mt-5">
                 <div class="card text-white mb-3" style="max-width: 540px; background-color:#6c63ff;">
                     <div class="row g-0">

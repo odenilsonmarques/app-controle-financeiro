@@ -9,10 +9,10 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header class="mb-5">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <header class="mb">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{route('index')}}">
                     Financeiro
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -21,7 +21,7 @@
                 <nav class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Início</a>
+                            <a class="nav-link" href="{{route('index')}}">Início</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('releases.dash')}}">Dashboard</a>
@@ -44,9 +44,9 @@
 
     <footer>
         <div class="container">
-            <div class="row mt-5">
+            <div class="row mt-5 mb-5">
                 <div class="col-sm-12 text-center">
-                    <span>&copy 2022 by 2ps.com</span>
+                    <span>2ps.com <br> problemas precisam de solução</span>
                 </div>
             </div>
         </div>

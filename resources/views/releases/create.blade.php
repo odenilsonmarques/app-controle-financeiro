@@ -5,7 +5,6 @@
     <div class="container">
         <div class="row release-financial">
             <div class="col-sm-5 mt-5">
-
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -15,11 +14,10 @@
                         </ul>
                     </div>
                 @endif
-                <img src="{{asset('assets/img/finance.svg')}}" width="300px" height="300px" alt="imagem cadastro lançamento">
-
+                <img src="{{asset('assets/img/finance.svg')}}" width="300px" height="300px" alt="imagem cadastro lançamento" class="mt-5">
             </div>
 
-            <div class="col-sm-7 mt-5">
+            <div class="col-sm-7 mt-5 cad-release">
                 <div class="card">
                     <div class="card-header">Cadastro de Lançamento</div>
                     <div class="card-body">

@@ -27,7 +27,7 @@
                     </div>
                 @endif
 
-                <div class="row">
+                <div class="row list-releases">
                     <div class="col-lg-9 mt-2">
                         <div class="input-group">
                             <form action="{{route('releases.filter')}}" method="POST" class="form-horizontal">
