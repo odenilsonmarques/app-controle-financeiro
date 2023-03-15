@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ReleaseController extends Controller
 {
-    private $totalPage = 5;
+    private $totalPage = 2;
 
     public function index(Release $release)
     {

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class FilterReleaseController extends Controller
 {
-    private $totalPage = 5;
+    private $totalPage = 2;
 
     public function filter(Request $request, Release $release)//passando o objeto Release, pois vai ser preciso recuperá-lo no metodo criado na model
     {

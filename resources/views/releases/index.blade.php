@@ -83,7 +83,7 @@
                         </thead>
                         <tbody>
                             @foreach($releases as $release)
-                                @if($release->release_type == 'Receita')
+                                
                                     <tr>
                                         <td>{{$release->id}}</td>
                                         <td>{{$release->release_type}}</td>
@@ -96,20 +96,7 @@
                                             <a href="{{route('releases.destroy', [$release->id])}}" class="btn btn-danger btn-sm">Excluir</a>
                                         </td>
                                     </tr>
-                                @else
-                                    <tr style="color:red">
-                                        <td>{{$release->id}}</td>
-                                        <td>{{$release->release_type}}</td>
-                                        <td>{{$release->person}}</td>
-                                        <td>R$ {{number_format($release->amount, 2, ',', '.')}}</td>
-                                        <td>{{$release->month}}</td>
-                                        <td>{{$release->description}}</td>
-                                        <td>
-                                            <a href="{{route('releases.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
-                                            <a href="{{route('releases.destroy', [$release->id])}}" class="btn btn-danger btn-sm">Excluir</a>
-                                        </td>
-                                    </tr>
-                                @endif
+                                
                             @endforeach
                         </tbody>
                     </table>
