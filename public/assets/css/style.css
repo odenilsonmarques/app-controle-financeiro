@@ -114,3 +114,7 @@ table th
 .card-dashboard{
     padding-top: 70px;
 }
+
+table, tr .row-expenses{
+    color:indianred;
+}

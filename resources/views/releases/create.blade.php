@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="release_type" class="form-label">Tipo de Lançamento</label>
-                                    <select name="release_type" id="release_type" class="form-select" autofocus  required>
+                                    <select name="release_type" id="release_type" class="form-select" autofocus>
                                         <option value="">---- Selecione ----</option>
                                         <option value="Despesa" {{old('release_type') == 'Despesa' ? ' selected':''}}>Despesa</option>
                                         <option value="Receita" {{old('release_type') == 'Receita' ? ' selected': ''}}>Receita</option>
@@ -37,23 +37,37 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="person" class="form-label">Pessoa</label>
-                                    <input type="text" name="person" id="person" value="{{old('person')}}" class="form-control"  maxlength="30" placeholder="Digite o nome" required> 
+                                    <input type="text" name="person" id="person" value="{{old('person')}}" class="form-control"  maxlength="30" placeholder="Digite o nome"> 
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="amount" class="form-label">Valor</label>
-                                    <input type="text" name="amount" id="amount" value="{{old('amount')}}" class="form-control" onkeyup="formatCoin();"  placeholder="R$" required>
+                                    <input type="text" name="amount" id="amount" value="{{old('amount')}}" class="form-control" onkeyup="formatCoin();"  placeholder="R$">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="mes" class="form-label">Mês</label>
-                                    <select name="month" id="month" class="form-select" required>
+                                    <select name="month" id="month" class="form-select">
                                         <option value="">---- Selecione ----</option>
-                                        <option value="Janeiro"   {{old('month') == 'Janeiro' ? ' selected':''}}>Janeiro</option>
+                                        
+                                        <?php
+                                        $months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro'];
+                                        ?>
+                                        @foreach($months as $month)
+                                            <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
+                                        @endforeach
+                                            
+
+                                       
+                                        
+                                        
+                                        
+                                        
+                                        {{-- <option value="Janeiro"   {{old('month') == 'Janeiro' ? ' selected':''}}>Janeiro</option>
                                         <option value="Fevereiro" {{old('month') == 'Fevereiro' ? ' selected':''}}>Fevereiro</option>
                                         <option value="Março"     {{old('month') == 'Março' ? ' selected':''}}>Março</option>
                                         <option value="Abril"     {{old('month') == 'Abril' ? ' selected':''}}>Abril</option>
@@ -64,7 +78,7 @@
                                         <option value="Setembro"  {{old('month') == 'Setembro' ? ' selected':''}}>Setembro</option>
                                         <option value="Outubro"   {{old('month') == 'Outubro' ? ' selected':''}}>Outubro</option>
                                         <option value="Novembro"  {{old('month') == 'Novembro' ? ' selected':''}}>Novembro</option>
-                                        <option value="Dezembro"  {{old('month') == 'Dezembro' ? ' selected':''}}>Dezembro</option>
+                                        <option value="Dezembro"  {{old('month') == 'Dezembro' ? ' selected':''}}>Dezembro</option> --}}
                                     </select>
                                 </div>
                             </div>
@@ -72,7 +86,7 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="description" class="form-label">Descrição</label>
-                                    <textarea class="form-control" name="description" placeholder="Digite uma descrição" aria-label="With textarea" required>{{old('description')}}</textarea>
+                                    <textarea class="form-control" name="description" placeholder="Digite uma descrição" aria-label="With textarea">{{old('description')}}</textarea>
                                 </div>
                             </div>
 

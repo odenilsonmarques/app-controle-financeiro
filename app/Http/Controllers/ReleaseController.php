@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ReleaseController extends Controller
 {
-    private $totalPage = 2;
+    private $totalPage = 3;
 
     public function index(Release $release)
     {
@@ -22,10 +22,19 @@ class ReleaseController extends Controller
 
     public function store(StoreUpdateReleaseFormRequest $request)
     {
-        Release::create($request->all());
+
+        $teste = Release::create($request->all());
+        // dd($teste);
+
+        // dd($teste->$request->all());
         return redirect()->route('releases.index')
         ->with('messageCreate', 'Lançamento cadastrado com sucesso !');
     }
+
+
+
+
+
 
     public function edit($id)
     {
