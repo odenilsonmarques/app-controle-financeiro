@@ -13,7 +13,11 @@ class FilterReleaseController extends Controller
     {
         $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $releases = $release->search($dataForm,$this->totalPage);
-        return view('releases.index', compact('releases', 'dataForm'));
+
+        // $selectmonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro'];
+    
+        return view('releases.index', compact('releases', 'dataForm', ));
     }
 
 }
+

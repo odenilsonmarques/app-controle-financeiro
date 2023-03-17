@@ -11,8 +11,8 @@ class ReleaseController extends Controller
 
     public function index(Release $release)
     {
-        $releases = Release:: paginate($this->totalPage);
-        return view('releases.index',compact('releases'));
+        $releases = Release:: paginate($this->totalPage);                                 
+        return view('releases.index',compact('releases','months'));
     }
 
     public function create() 
@@ -23,19 +23,10 @@ class ReleaseController extends Controller
     public function store(StoreUpdateReleaseFormRequest $request)
     {
 
-        $teste = Release::create($request->all());
-        // dd($teste);
-
-        // dd($teste->$request->all());
+        Release::create($request->all());
         return redirect()->route('releases.index')
         ->with('messageCreate', 'Lançamento cadastrado com sucesso !');
     }
-
-
-
-
-
-
     public function edit($id)
     {
         $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro'];

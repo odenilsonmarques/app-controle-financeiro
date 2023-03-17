@@ -39,20 +39,15 @@
                                         <option value="Receita">Receita</option>
                                     </select>
 
-                                    <select name="month" id="month" class="form-select  inputSearch">
-                                        <option value="">-- Busca por mês --</option>
-                                        <option value="Janeiro">Janeiro</option>
-                                        <option value="Fevereiro">Fevereiro</option>
-                                        <option value="Março">Março</option>
-                                        <option value="Abril">Abril</option>
-                                        <option value="Maio">Maio</option>
-                                        <option value="Junho">Junho</option>
-                                        <option value="Julho">Julho</option>
-                                        <option value="Agosto">Agosto</option>
-                                        <option value="Setembro">Setembro</option>
-                                        <option value="Outubro">Outubro</option>
-                                        <option value="Novembro">Novembro</option>
-                                        <option value="Dezembro">Dezembro</option>
+                                    <select name="month" id="month" class="form-select">
+                                        <option value="">---- Selecione ----</option>
+                                        <?php
+                                            $months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro']; 
+                                        ?>
+
+                                        @foreach($months as $month)
+                                            <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
+                                        @endforeach
                                     </select>
 
                                     <input type="text" name="person" id="person" class="form-control inputSearch" placeholder="Busca por pessoa">
@@ -82,7 +77,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             @foreach($releases as $release)
+
                                 @if($release->release_type == 'Receita')
                                 
                                     <tr>
@@ -122,6 +119,13 @@
                                         </td>
                                     </tr>
                                 @endif
+
+                                {{-- total {{$releases->month::$monthsoma}} --}}
+
+                                
+
+
+
                             @endforeach
 
                             {{-- @if($release->selectedMonth == 'selectedMonth')
