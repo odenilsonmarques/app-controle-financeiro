@@ -5,7 +5,6 @@
     <div class="container">
         <div class="row release-financial">
             <div class="col-sm-5 mt-5">
-
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -15,11 +14,10 @@
                         </ul>
                     </div>
                 @endif
-                <img src="{{asset('assets/img/finance.svg')}}" width="300px" height="300px" alt="imagem cadastro lançamento">
-
+                <img src="{{asset('assets/img/finance.svg')}}" width="300px" height="300px" alt="imagem cadastro lançamento" class="mt-5">
             </div>
 
-            <div class="col-sm-7 mt-5">
+            <div class="col-sm-7 mt-5 cad-release">
                 <div class="card">
                     <div class="card-header">Cadastro de Lançamento</div>
                     <div class="card-body">
@@ -28,7 +26,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="release_type" class="form-label">Tipo de Lançamento</label>
-                                    <select name="release_type" id="release_type" class="form-select" autofocus  required>
+                                    <select name="release_type" id="release_type" class="form-select" autofocus required>
                                         <option value="">---- Selecione ----</option>
                                         <option value="Despesa" {{old('release_type') == 'Despesa' ? ' selected':''}}>Despesa</option>
                                         <option value="Receita" {{old('release_type') == 'Receita' ? ' selected': ''}}>Receita</option>
@@ -53,20 +51,14 @@
                             <div class="row">
                                 <div class="col-sm-12 mt-3">
                                     <label for="mes" class="form-label">Mês</label>
-                                    <select name="month" id="month" class="form-select" required>
+                                    <select name="month" id="month" class="form-select">
                                         <option value="">---- Selecione ----</option>
-                                        <option value="Janeiro"   {{old('month') == 'Janeiro' ? ' selected':''}}>Janeiro</option>
-                                        <option value="Fevereiro" {{old('month') == 'Fevereiro' ? ' selected':''}}>Fevereiro</option>
-                                        <option value="Março"     {{old('month') == 'Março' ? ' selected':''}}>Março</option>
-                                        <option value="Abril"     {{old('month') == 'Abril' ? ' selected':''}}>Abril</option>
-                                        <option value="Maio"      {{old('month') == 'Maio' ? ' selected':''}}>Maio</option>
-                                        <option value="Junho"     {{old('month') == 'Junho' ? ' selected':''}}>Junho</option>
-                                        <option value="Julho"     {{old('month') == 'Julho' ? ' selected':''}}>Julho</option>
-                                        <option value="Agosto"    {{old('month') == 'Agosto' ? ' selected':''}}>Agosto</option>
-                                        <option value="Setembro"  {{old('month') == 'Setembro' ? ' selected':''}}>Setembro</option>
-                                        <option value="Outubro"   {{old('month') == 'Outubro' ? ' selected':''}}>Outubro</option>
-                                        <option value="Novembro"  {{old('month') == 'Novembro' ? ' selected':''}}>Novembro</option>
-                                        <option value="Dezembro"  {{old('month') == 'Dezembro' ? ' selected':''}}>Dezembro</option>
+                                        <?php
+                                            $months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro'];
+                                        ?>
+                                        @foreach($months as $month)
+                                            <option value="{{$month}}" {{old('month') == $month ? ' selected':''}} required>{{$month}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
