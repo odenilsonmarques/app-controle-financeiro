@@ -41,13 +41,14 @@
 
                                     <select name="month" id="month" class="form-select">
                                         <option value="">---- Selecione ----</option>
-                                        <?php
-                                            $months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro']; 
-                                        ?>
-
+                                        
                                         @foreach($months as $month)
                                             <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
+
+                                    
                                         @endforeach
+
+                                        
                                     </select>
 
                                     <input type="text" name="person" id="person" class="form-control inputSearch" placeholder="Busca por pessoa">
@@ -119,14 +120,12 @@
                                         </td>
                                     </tr>
                                 @endif
-
-                                {{-- total {{$releases->month::$monthsoma}} --}}
-
-                                
-
-
-
                             @endforeach
+
+
+                
+
+                           
 
                             {{-- @if($release->selectedMonth == 'selectedMonth')
                                 total {{$selectedMonth}}

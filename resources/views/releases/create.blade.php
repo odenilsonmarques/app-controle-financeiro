@@ -53,9 +53,6 @@
                                     <label for="mes" class="form-label">Mês</label>
                                     <select name="month" id="month" class="form-select">
                                         <option value="">---- Selecione ----</option>
-                                        <?php
-                                            $months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro'];
-                                        ?>
                                         @foreach($months as $month)
                                             <option value="{{$month}}" {{old('month') == $month ? ' selected':''}} required>{{$month}}</option>
                                         @endforeach

@@ -80,6 +80,10 @@
             </div>
         </div>
     </div>
+
+    {{--diretiva para trabalhar com js no blade --}}
+   
+
 @endsection
 
 

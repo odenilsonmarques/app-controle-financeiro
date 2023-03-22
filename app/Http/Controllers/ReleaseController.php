@@ -17,7 +17,8 @@ class ReleaseController extends Controller
 
     public function create() 
     { 
-        return view('releases.create');
+        $months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+        return view('releases.create',compact('months'));
     }
 
     public function store(StoreUpdateReleaseFormRequest $request)

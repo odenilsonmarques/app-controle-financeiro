@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <title>@yield('title')</title>
+    
+        {{-- <meta charset="utf-8">
+        
+        @if($usersChart)
+            {!! $usersChart->script() !!}
+        @endif --}}
+    
 </head>
 <body>
     <header class="mb">
@@ -26,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('releases.dash')}}">Dashboard</a>
                         </li>
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{route('reports.chart')}}">Grafico</a>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('releases.index')}}">Lançamentos</a>
                         </li>
@@ -54,5 +64,6 @@
     
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/js/scriptFormatCoin.js')}}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script> --}}
 </body>
 </html>

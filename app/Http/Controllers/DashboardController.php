@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 use App\Models\Release;
 use Illuminate\Http\Request;
+use App\Charts\ReportsChart;
 
 class DashboardController extends Controller
 {
-    public function dash(){
-        // dd('DashboardController');
 
+    public function dash(){
+        
         $totalReleases = Release::count();
 
         $totalRevenues = Release::where('release_type', '=', 'Receita')->count();
@@ -22,12 +23,15 @@ class DashboardController extends Controller
         // dd($allRecipes);
 
         return view('dashboard.dashboard',[
+           
             'totalReleases'=>$totalReleases,
             'totalRevenues'=>$totalRevenues,
             'totalExpenses'=>$totalExpenses,
             'sumRenevueValues'=>$sumRenevueValues,
             'sumExpenseValues'=>$sumExpenseValues,
+            
         ]);
 
     }
+
 }
