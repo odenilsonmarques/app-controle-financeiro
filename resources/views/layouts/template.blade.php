@@ -61,9 +61,12 @@
             </div>
         </div>
     </footer>
-    
+
+    {{-- Esse script está vindo antes por causa da renderizacao do grafico --}}
+    <script src="{{asset('assets/js/chart.umd.js')}}"></script>
+    @yield('script')
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/js/scriptFormatCoin.js')}}"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script> --}}
+    
 </body>
 </html>

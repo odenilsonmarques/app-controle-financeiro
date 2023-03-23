@@ -79,25 +79,14 @@
                 </div>
             </div>
         </div>
+
+        {{-- o grafico será renderizado nessa div --}}
+        <div class="display-chart mt-5">
+            <canvas id="myChart" width="400" height="100"></canvas>
+        </div>
     </div>
-
-    {{--diretiva para trabalhar com js no blade --}}
-   
-
 @endsection
 
-
-
-
-
-
-{{-- total de lancamentos {{$totalReleases}}<br>
-
-total de receitas {{$totalRevenues}}<br>
-
-total dos valores das receitas {{$totalRevenues}}<br>
-
-
-total de receitas {{$sumRenevueValues}}<br>
-
-total de despesas {{$sumExpenseValues}}<br> --}}
+@section('script')
+    <script src="{{asset('assets/js/chart.js')}}"></script>
+@endsection
