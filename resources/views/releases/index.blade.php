@@ -39,13 +39,11 @@
                                         <option value="Receita">Receita</option>
                                     </select>
 
-                                    <select name="month" id="month" class="form-select">
+                                    <select name="month" id="month" class="form-select inputSearch">
                                         <option value="">---- Selecione ----</option>
                                         
                                         @foreach($months as $month)
                                             <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
-
-                                    
                                         @endforeach
 
                                         
