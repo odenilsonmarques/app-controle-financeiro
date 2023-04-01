@@ -80,6 +80,10 @@
             </div>
         </div>
 
+        {{-- {{implode(',', $busca)}} --}}
+
+   
+
         {{-- Receita{{$receita}} --}}
 
         {{-- o grafico será renderizado nessa div --}}
@@ -92,15 +96,17 @@
 @section('script')
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+        var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            // labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-            labels: ['Receitas', 'Despesas'],
+            // labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'JUl', 'Ago', 'Set','Out','Nov', 'Dez'],
+            labels: <?php echo json_encode($meses); ?>,
             datasets: [{
                 label: 'Valores por mes',
-                // data: [5, 6, 3, 5, 2, 3],
-                data: [{{$totalExpenses}}],
+                
+                
+                data: <?php echo json_encode($busca); ?>,
+                
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
