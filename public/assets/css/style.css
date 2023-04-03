@@ -32,7 +32,7 @@ table th
 }
 
 .inputSearch{
-    margin-right:5px;
+    margin-right:1rem;
 }
 .pa-expense{
     background-color: #FFF;
@@ -117,4 +117,9 @@ table th
 
 table, tr .row-expenses{
     color:indianred;
+}
+
+.report{
+    margin-top:90px;
+    /* background-color: #6c63ff; */
 }
