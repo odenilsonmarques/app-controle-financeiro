@@ -79,14 +79,7 @@
                 </div>
             </div>
         </div>
-
-        {{-- {{implode(',', $busca)}} --}}
-
-   
-
-        {{-- Receita{{$receita}} --}}
-
-        {{-- o grafico será renderizado nessa div --}}
+        
         <div class="display-chart mt-5">
             <canvas id="myChart" width="400" height="100"></canvas>
         </div>
@@ -99,13 +92,11 @@
         var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            // labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'JUl', 'Ago', 'Set','Out','Nov', 'Dez'],
-            labels: <?php echo json_encode($meses); ?>,
+
+            labels: <?php echo json_encode($months); ?>,
             datasets: [{
-                label: 'Valores por mes',
-                
-                
-                data: <?php echo json_encode($busca); ?>,
+                label: 'Valor por mês',
+                data: <?php echo json_encode($datas); ?>,
                 
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -126,16 +117,15 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
-        }
-    });
+        });
     </script>
-    {{-- <script src="{{asset('assets/js/chart.js')}}"></script> --}}
 @endsection

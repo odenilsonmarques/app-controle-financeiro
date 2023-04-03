@@ -21,10 +21,10 @@ class DashboardController extends Controller
 
         $sumExpenseValues = Release::where('release_type', '=', 'Despesa')->sum('amount');
 
-        $meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-        $dataset = DB::table('releases')
-        ->select(DB::raw('(month) as mes'), 'month', DB::raw('SUM(amount) as total'))
-        ->groupBy('mes', 'month')
+        $months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        $searchMonthValues = DB::table('releases')
+        ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
+        ->groupBy('monthAll', 'month')
         ->orderBy(DB::raw('CASE (month)
                             WHEN "Janeiro" THEN 0
                             WHEN "Fevereiro" THEN 1
@@ -43,20 +43,9 @@ class DashboardController extends Controller
         ->get()
         ->toArray();
 
-        
-
-        // dd($valores_meses);
-
-    
-
-        foreach($dataset as $valor){
-            $busca[$valor->mes] = $valor->total;
+        foreach($searchMonthValues as $searchMonthValue){
+            $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
         }
-
-        // dd($busca);
-        
-        
-       
 
         return view('dashboard.dashboard',[
            
@@ -65,12 +54,8 @@ class DashboardController extends Controller
             'totalExpenses'=>$totalExpenses,
             'sumRenevueValues'=>$sumRenevueValues,
             'sumExpenseValues'=>$sumExpenseValues,
-            'busca'=>$busca,
-            'meses'=>$meses,
-
-            
+            'datas'=>$datas,
+            'months'=>$months,
         ]);
-
     }
-
 }

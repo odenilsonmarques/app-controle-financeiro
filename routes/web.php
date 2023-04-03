@@ -25,7 +25,7 @@ Route::put('/releases/{id}',[ReleaseController::class, 'update'])->name('release
 Route::get('/releases/{id}',[ReleaseController::class, 'destroy'])->name('releases.destroy');
 Route::any('/releases',[FilterReleaseController::class,'filter'])->name('releases.filter');
 
-Route::get('/reports',[ReportsController::class,'chart'])->name('reports.chart');
+// Route::get('/reports',[ReportsController::class,'chart'])->name('reports.chart');
 
 
 // Nota: as rotas podem ter o mesmo nome, desde que tenham verbos diferentes
