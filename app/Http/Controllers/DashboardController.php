@@ -47,6 +47,7 @@ class DashboardController extends Controller
             $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
         }
 
+
         return view('dashboard.dashboard',[
            
             'totalReleases'=>$totalReleases,

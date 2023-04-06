@@ -18,3 +18,5 @@
 @push('js')
 {!! $chart->script() !!}
 @endpush
+
+

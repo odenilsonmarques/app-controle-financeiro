@@ -42,7 +42,7 @@
                                     <select name="month" id="month" class="form-select inputSearch">
                                         <option value="">---- Selecione ----</option>
                                         
-                                        @foreach($months as $month)
+                                        @foreach($selectedMonths as $month)
                                             <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
                                         @endforeach
 
@@ -56,9 +56,23 @@
                                     </div>
                                 </div>
                             </form>
+    
                         </div>
                     </div>
                 </div>
+
+                <?php
+                    if (isset($_POST['month'])) {
+                        $selectedMonth = $_POST['month'];
+                    if (isset($datas[$selectedMonth])) {
+                        echo "Valor do mês de $selectedMonth R$ ".number_format($datas[$selectedMonth],2, ',', '.');
+                    } else {
+                        // echo "Não há valores para $selectedMonth";
+                    }
+                    } else {
+                        // echo "";
+                    }
+                ?>
 
                 <div class="table-responsive">
                     <table class="table table table-striped table-hover">
@@ -77,6 +91,8 @@
                         </thead>
                         <tbody>
                             
+                            
+
                             @foreach($releases as $release)
 
                                 @if($release->release_type == 'Receita')
@@ -119,25 +135,6 @@
                                     </tr>
                                 @endif
                             @endforeach
-
-
-                
-
-                           
-
-                            {{-- @if($release->selectedMonth == 'selectedMonth')
-                                total {{$selectedMonth}}
-                            @endif --}}
-
-                            {{-- @if($release->release_type == 'Receita' || $release->month = empty())
-                                Receita {{number_format($sumRenevueValues, 2, ',', '.')}}
-                            @endif
-                           
-
-                            @if($release->release_type == 'Despesa' || $release->month == empty(month))
-                                Despesas {{number_format($sumExpenseValues, 2, ',', '.')}}
-                            @endif --}}
-
                         </tbody>
                     </table>
                     <div class="py-4">
