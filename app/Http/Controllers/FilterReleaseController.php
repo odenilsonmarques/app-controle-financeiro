@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Release;
 use Illuminate\Http\Request;
+use DB;
 
 class FilterReleaseController extends Controller
 {
@@ -13,16 +14,39 @@ class FilterReleaseController extends Controller
         $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $releases = $release->search($dataForm,$this->totalPage);
 
-        $months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+        $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
     
-        // logica para buscar os valores de cada mes
         
-        // foreach($months as $sum){
-        //     $sum = Release::where('month', '=',  $months[0])->sum('amount');
-        //     dd($sum);
-        // }
+        $searchMonthValues = DB::table('releases')
+        ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
+        // ->where('month', '=', $selectedMonths)
+        ->groupBy('monthAll', 'month')
+        ->orderBy(DB::raw('CASE (month)
+                            WHEN "Janeiro" THEN 0
+                            WHEN "Fevereiro" THEN 1
+                            WHEN "Março" THEN 2
+                            WHEN "Abril" THEN 3
+                            WHEN "Maio" THEN 4
+                            WHEN "Junho" THEN 5
+                            WHEN "Julho" THEN 6
+                            WHEN "Agosto" THEN 7
+                            WHEN "Setembro" THEN 8
+                            WHEN "Outubro" THEN 9
+                            WHEN "Novembro" THEN 10
+                            WHEN "Dezembro" THEN 11
+                            END','asc'))
+        ->orderBy('total', 'desc')
+        ->get()
+        ->toArray();
 
-        return view('releases.index', compact('releases', 'dataForm','months'));
+        foreach($searchMonthValues as $searchMonthValue){
+            $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
+            // dd($datas);
+        }
+
+        // dd($datas);
+
+        return view('releases.index', compact('releases', 'dataForm','selectedMonths', 'datas'));
     }
 
 }
