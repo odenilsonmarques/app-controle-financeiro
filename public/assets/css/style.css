@@ -108,7 +108,7 @@ table th
 }
 
 .list-releases{
-    padding-top: 90px;
+    padding-top: 65px;
 }
 
 .card-dashboard{
@@ -122,4 +122,10 @@ table, tr .row-expenses{
 .report{
     margin-top:90px;
     /* background-color: #6c63ff; */
+}
+.msg{
+    margin-top:70px;
+    /* border: 1px solid red; */
+    margin-bottom: -30px;
+    
 }

@@ -5,23 +5,22 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-
                 @if(session('messageCreate'))
-                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                    <div class="alert alert-success alert-dismissible msg fade show text-center" role="alert">
                         <strong>{{session('messageCreate')}}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
 
                 @if(session('messageEdit'))
-                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                    <div class="alert alert-success alert-dismissible msg fade show text-center" role="alert">
                         <strong>{{session('messageEdit')}}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
 
                 @if(session('messageDestroy'))
-                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                    <div class="alert alert-success alert-dismissible msg fade show text-center" role="alert">
                         <strong>{{session('messageDestroy')}}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
@@ -41,12 +40,9 @@
 
                                     <select name="month" id="month" class="form-select inputSearch">
                                         <option value="">---- Selecione ----</option>
-                                        
                                         @foreach($selectedMonths as $month)
                                             <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
                                         @endforeach
-
-                                        
                                     </select>
 
                                     <input type="text" name="person" id="person" class="form-control inputSearch" placeholder="Busca por pessoa">
@@ -56,23 +52,26 @@
                                     </div>
                                 </div>
                             </form>
-    
                         </div>
                     </div>
                 </div>
-
-                <?php
-                    if (isset($_POST['month'])) {
+                {{-- this code display the value total of month select --}}
+                @if(isset($_POST['month']))
+                    @php
                         $selectedMonth = $_POST['month'];
-                    if (isset($datas[$selectedMonth])) {
-                        echo "Valor do mês de $selectedMonth R$ ".number_format($datas[$selectedMonth],2, ',', '.');
-                    } else {
-                        // echo "Não há valores para $selectedMonth";
-                    }
-                    } else {
-                        // echo "";
-                    }
-                ?>
+                    @endphp
+                    @if(isset($datas[$selectedMonth]))
+                        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                            Valor total do mês de {{ $selectedMonth }}: R$ <strong>{{ number_format($datas[$selectedMonth], 2, ',', '.') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @else
+                        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                            Não há valores para de {{ $selectedMonth }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                @endif
 
                 <div class="table-responsive">
                     <table class="table table table-striped table-hover">
@@ -90,13 +89,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            
-
                             @foreach($releases as $release)
-
                                 @if($release->release_type == 'Receita')
-                                
                                     <tr>
                                         <td>{{$release->id}}</td>
                                         <td>
@@ -113,7 +107,6 @@
                                             <a href="{{route('releases.edit',[$release->id])}}" class="btn btn-dark btn-sm">Editar</a>
                                             <a href="{{route('releases.destroy', [$release->id])}}" class="btn btn-danger btn-sm">Excluir</a>
                                         </td>
-                                        
                                     </tr>
                                 @else
                                     <tr style="color:#B22222">
