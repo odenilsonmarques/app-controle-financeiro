@@ -4,7 +4,7 @@ use App\Http\Controllers\FilterReleaseController;
 use App\Http\Controllers\ReleaseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SiteController;
-use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,7 +25,7 @@ Route::put('/releases/{id}',[ReleaseController::class, 'update'])->name('release
 Route::get('/releases/{id}',[ReleaseController::class, 'destroy'])->name('releases.destroy');
 Route::any('/releases',[FilterReleaseController::class,'filter'])->name('releases.filter');
 
-// Route::get('/reports',[ReportsController::class,'chart'])->name('reports.chart');
+Route::get('/report',[ReportController::class,'report'])->name('releases.report');
 
 
 // Nota: as rotas podem ter o mesmo nome, desde que tenham verbos diferentes
