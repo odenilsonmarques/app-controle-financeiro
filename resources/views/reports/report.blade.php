@@ -9,11 +9,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="text-center">Lançamentos</h1>
-                <table class="table">
+            <div class="col-lg-12 text-center">
+                <h1 style="text-align: center">Lançamentos</h1>
+                <table class="table" border="1px" width="100%">
                     <thead class="table header-table">
-                        <tr>
+                        <tr style="background-color:darkgray;">
                             <th>#</th>
                             <th>Lançamento</th>
                             <th>Pessoa</th>
@@ -23,7 +23,7 @@
                     </thead>
                     <tbody>
                         @foreach($datas as $data)
-                            <tr>
+                            <tr style="text-align:center">
                                 <td>{{$data->id}}</td>
                                 <td>{{$data->release_type}}</td>
                                 <td>{{$data->person}}</td>

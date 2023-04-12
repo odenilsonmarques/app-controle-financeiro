@@ -11,8 +11,8 @@ class ReleaseController extends Controller
 
     public function index(Release $release)
     {
-        $releases = Release:: paginate($this->totalPage);                                 
-        return view('releases.index',compact('releases','months'));
+        $releases = Release::paginate($this->totalPage);                          
+        return view('releases.index',compact('releases'));
     }
 
     public function create() 
