@@ -14,8 +14,9 @@ class FilterReleaseController extends Controller
         $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $releases = $release->search($dataForm,$this->totalPage);
 
-        $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+        // $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
     
+        // dd($selectedMonths);
         
         $searchMonthValues = DB::table('releases')
         ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
@@ -46,7 +47,8 @@ class FilterReleaseController extends Controller
 
         // dd($datas);
 
-        return view('releases.index', compact('releases', 'dataForm','selectedMonths', 'datas'));
+        return view('releases.index', compact('releases','datas'));
+        // return view('releases.index', compact('releases', 'dataForm','datas'));
     }
 
 }

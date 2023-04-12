@@ -29,4 +29,6 @@ Route::get('/report',[ReportController::class,'report'])->name('releases.report'
 
 
 
+
+
 // Nota: as rotas podem ter o mesmo nome, desde que tenham verbos diferentes

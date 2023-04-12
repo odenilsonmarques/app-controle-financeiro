@@ -57,6 +57,7 @@ class DashboardController extends Controller
             'sumExpenseValues'=>$sumExpenseValues,
             'datas'=>$datas,
             'months'=>$months,
+            'soma'=>$soma,
         ]);
     }
 }

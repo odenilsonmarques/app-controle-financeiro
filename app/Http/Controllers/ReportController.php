@@ -12,5 +12,7 @@ class ReportController extends Controller
         ->stream('lancamentos.pdf');
     }
 
+    // create method for sum the total of value releases
+
    
 }
