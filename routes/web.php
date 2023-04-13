@@ -26,6 +26,7 @@ Route::get('/releases/{id}',[ReleaseController::class, 'destroy'])->name('releas
 Route::any('/releases',[FilterReleaseController::class,'filter'])->name('releases.filter');
 
 Route::get('/report',[ReportController::class,'report'])->name('releases.report');
+// Route::get('/total',[ReportController::class,'report'])->name('releases.report');
 
 
 

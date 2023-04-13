@@ -9,7 +9,8 @@ use DB;
 class DashboardController extends Controller
 {
 
-    public function dash(){
+    public function dash()
+    {
         
         $totalReleases = Release::count();
 
@@ -57,7 +58,7 @@ class DashboardController extends Controller
             'sumExpenseValues'=>$sumExpenseValues,
             'datas'=>$datas,
             'months'=>$months,
-            'soma'=>$soma,
+            
         ]);
     }
 }

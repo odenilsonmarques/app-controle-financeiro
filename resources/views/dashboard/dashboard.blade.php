@@ -17,8 +17,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Lancamentos</h5>
                                 <h5 class="number">{{$totalReleases}}</h5>
-                                <h5 class="card-title text-center">total</h5>
-                                <h5 class="number">{{$soma}}</h5>
                             </div>
                         </div>
                     </div>

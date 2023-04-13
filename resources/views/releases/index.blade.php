@@ -70,6 +70,7 @@
                             
                             </a>
                     </div>
+                    {{-- {{$totalSum}} --}}
                 </div>
                 {{-- this code display the value total of month select --}}
                 @if(isset($_POST['month']))
