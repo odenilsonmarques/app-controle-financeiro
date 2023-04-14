@@ -17,8 +17,4 @@ class ReportController extends Controller
         return \PDF::loadView('reports.report', compact('datas', 'soma'))
         ->stream('lancamentos.pdf');
     }
-
-    
-
-   
 }
