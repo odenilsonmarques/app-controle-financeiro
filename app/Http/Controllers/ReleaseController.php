@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 class ReleaseController extends Controller
 {
-    private $totalPage = 3;
+    private $totalPage = 5;
 
     public function index(Release $release)
     {
-        $releases = Release:: paginate($this->totalPage);                                 
-        return view('releases.index',compact('releases','months'));
+        $releases = Release::paginate($this->totalPage);                          
+        return view('releases.index',compact('releases'));
     }
 
     public function create() 

@@ -27,7 +27,7 @@
                 @endif
 
                 <div class="row list-releases">
-                    <div class="col-lg-9 mt-2">
+                    <div class="col-lg-8 mt-2">
                         <div class="input-group">
                             <form action="{{route('releases.filter')}}" method="POST" class="form-horizontal">
                                 @csrf
@@ -39,6 +39,9 @@
                                     </select>
 
                                     <select name="month" id="month" class="form-select inputSearch">
+                                        @php
+                                            $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+                                        @endphp
                                         <option value="">---- Selecione ----</option>
                                         @foreach($selectedMonths as $month)
                                             <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
@@ -48,12 +51,26 @@
                                     <input type="text" name="person" id="person" class="form-control inputSearch" placeholder="Busca por pessoa">
 
                                     <div class="input-group-append ml-3">
-                                        <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
+                                        <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff;margin-right:5px;" >Buscar</button>
                                     </div>
+                                    
                                 </div>
                             </form>
                         </div>
+                        
                     </div>
+                    <div class="col-lg-4 mt-2">
+                     
+                            <a href="{{route('releases.report')}}" target="_blank" class="btn btn-outline-secondary float-end">Gerar lançamentos
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+                                    <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+                                    <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                                </svg>
+                            
+                            </a>
+                    </div>
+                    {{-- {{$totalSum}} --}}
                 </div>
                 {{-- this code display the value total of month select --}}
                 @if(isset($_POST['month']))
@@ -63,11 +80,6 @@
                     @if(isset($datas[$selectedMonth]))
                         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
                             Valor total do mês de {{ $selectedMonth }}: R$ <strong>{{ number_format($datas[$selectedMonth], 2, ',', '.') }}</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @else
-                        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                            Não há valores para de {{ $selectedMonth }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif

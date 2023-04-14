@@ -7,16 +7,13 @@ use DB;
 
 class FilterReleaseController extends Controller
 {
-    private $totalPage = 3;
+    private $totalPage = 5;
     
     public function filter(Request $request, Release $release)//passando o objeto Release, pois vai ser preciso recuperá-lo no metodo criado na model
     {
         $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $releases = $release->search($dataForm,$this->totalPage);
-
-        $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-    
-        
+ 
         $searchMonthValues = DB::table('releases')
         ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
         // ->where('month', '=', $selectedMonths)
@@ -46,7 +43,8 @@ class FilterReleaseController extends Controller
 
         // dd($datas);
 
-        return view('releases.index', compact('releases', 'dataForm','selectedMonths', 'datas'));
+        // return view('releases.index', compact('releases','datas'));
+        return view('releases.index', compact('releases', 'dataForm','datas'));
     }
 
 }
