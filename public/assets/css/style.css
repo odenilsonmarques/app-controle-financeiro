@@ -2,6 +2,97 @@ body{
     background-color: #FFFAF0;
 }
 
+.navbar a.navbar-brand {
+    color: #FEFBF6;
+    font-weight: bold;   
+    font-size: 20px;
+}
+
+.navbar-expand-sm .navbar-nav .nav-link{
+    color: #FEFBF6;
+}
+
+.navbar-expand-sm .navbar-nav .nav-link:hover{
+    text-decoration: underline;
+}
+
+.container-fluid{
+    background-color: #6c63ff;
+    color: #F5F5F5;
+    padding-top: 70px;
+}
+
+.hero h1{
+    padding-top: 60px;
+    font-size: 45px;
+}
+
+.hero p{
+    padding-top: 5px;
+    font-size: 20px;   
+}
+
+.hero-text img{
+    padding-bottom: 10px;
+    margin-bottom: 35px;
+}
+
+.container.hero{
+    animation: fadeInLeft 2s;
+}
+
+/* css padão para aplicação do efeito de transação */
+@keyframes fadeInLeft
+{
+    0%{
+        opacity:0;
+        /* translateX reposiciona um elemento na direção horizontal e/ou vertical */
+        -webkit-transform:translateX(-100px); 
+        -ms-transform:translateX(-100px);
+        transform:translateX(-100px)}
+    100%{
+        opacity:1;
+        -webkit-transform:translateX(0);
+        -ms-transform:translateX(0);
+        transform:translateX(0)
+    }
+}
+
+.texts-features p{
+    background-color: #F7F7F7;
+    padding: 15px;
+}
+
+.texts-features p:hover{
+    background-color: #6c63ff;
+    color: #f1f1f1;
+}
+
+.card-dashboard{
+    padding-top: 70px;
+}
+
+.card-values{
+    max-width: 540px;
+}
+
+.pa-expense{
+    background-color: #FFF;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: red;
+    margin-top: 5px;
+}
+
+.pa-renevue{
+    background-color: #FFF;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: green;
+    margin-top: 5px;
+}
+
+
 
 .card-header{
     background-color: #6c63ff;
@@ -34,86 +125,15 @@ table th
 .inputSearch{
     margin-right:1rem;
 }
-.pa-expense{
-    background-color: #FFF;
-    border-radius: 5px;
-    margin-left: 2px;
-    color: red;
-}
 
-.pa-renevue{
-    background-color: #FFF;
-    border-radius: 5px;
-    margin-left: 2px;
-    color: green;
-    /* margin-top: 1px; */
-}
 
-.container-fluid
-{
-    background-color: #6c63ff;
-    /* border:1px solid red; */
-    color: #F5F5F5;
-    padding-top: 70px;
-}
 
-.hero h1{
-    padding-top: 60px;
-    font-size: 45px;
-    /* text-shadow: #111; */
-}
-
-.hero p{
-    padding-top: 5px;
-    font-size: 20px;
-    
-}
-
-.hero-text img{
-    padding-bottom: 10px;
-    margin-bottom: 35px;
-    /* border: 1px solid red; */
-
-}
-
-.container.hero{
-    animation: fadeInLeft 2s;
-}
-
-/* css padão para aplicação do efeito de transação */
-@keyframes fadeInLeft
-{
-    0%{
-        opacity:0;
-        /* translateX reposiciona um elemento na direção horizontal e/ou vertical */
-        -webkit-transform:translateX(-100px); 
-        -ms-transform:translateX(-100px);
-        transform:translateX(-100px)}
-    100%{
-        opacity:1;
-        -webkit-transform:translateX(0);
-        -ms-transform:translateX(0);
-        transform:translateX(0)
-    }
-}
-
-.texts-features p{
-    background-color: #f1f1f1;
-    padding: 15px;
-}
-
-.texts-features p:hover{
-    background-color: #6c63ff;
-    color: #f1f1f1;
-}
 
 .list-releases{
     padding-top: 65px;
 }
 
-.card-dashboard{
-    padding-top: 70px;
-}
+
 
 table, tr .row-expenses{
     color:indianred;

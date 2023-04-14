@@ -8,9 +8,9 @@ use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('');
+// });
 
 Route::get('/', [SiteController::class, 'index'])->name('index');
 
@@ -26,10 +26,6 @@ Route::get('/releases/{id}',[ReleaseController::class, 'destroy'])->name('releas
 Route::any('/releases',[FilterReleaseController::class,'filter'])->name('releases.filter');
 
 Route::get('/report',[ReportController::class,'report'])->name('releases.report');
-// Route::get('/total',[ReportController::class,'report'])->name('releases.report');
-
-
-
 
 
 // Nota: as rotas podem ter o mesmo nome, desde que tenham verbos diferentes

@@ -7,19 +7,13 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    
-        {{-- <meta charset="utf-8">
-        
-        @if($usersChart)
-            {!! $usersChart->script() !!}
-        @endif --}}
 </head>
 <body>
     <header class="mb">
         <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{route('index')}}">
-                    Financeiro
+                    Montante
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -32,9 +26,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('releases.dash')}}">Dashboard</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{route('reports.chart')}}">Grafico</a>
-                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('releases.index')}}">Lançamentos</a>
                         </li>

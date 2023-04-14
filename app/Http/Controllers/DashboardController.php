@@ -11,7 +11,6 @@ class DashboardController extends Controller
 
     public function dash()
     {
-        
         $totalReleases = Release::count();
 
         $totalRevenues = Release::where('release_type', '=', 'Receita')->count();
