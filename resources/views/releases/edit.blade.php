@@ -3,9 +3,8 @@
 
 @section('content')
     <div class="container">
-        <div class="row release-financial">
-            <div class="col-sm-5 mt-5">
-
+        <div class="row">
+            <div class="col-sm-5 cad-release">
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -15,11 +14,10 @@
                         </ul>
                     </div>
                 @endif
-                <img src="{{asset('assets/img/financeEdit.svg')}}" width="300px" height="300px" alt="imagem cadastro lançamento">
-            
+                <img src="{{asset('assets/img/financeEdit.svg')}}" width="300px" height="300px" alt="edita lançamento">
             </div>
 
-            <div class="col-sm-7 mt-5">
+            <div class="col-sm-7 cad-release">
                 <div class="card">
                     <div class="card-header">Atualiazação de Lançamento</div>
                     <div class="card-body">
@@ -31,11 +29,9 @@
                                 <div class="col-sm-12">
                                     <label for="release_type" class="form-label">Tipo de Lançamento</label>
                                     <select name="release_type" id="release_type" class="form-select" autofocus  required>
-                                        
                                         @foreach($selectedReleases as $selectedRelease)
                                             <option value="{{$selectedRelease}}" @if( isset($releases) && $releases -> release_type == $selectedRelease) selected @endif>{{$selectedRelease}}</option>
                                         @endforeach
-                                        
                                     </select>
                                 </div>
                             </div>

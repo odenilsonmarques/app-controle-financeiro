@@ -1,5 +1,4 @@
 @extends('layouts.template')
-
 @section('title','Início')
 
 @section('content')
