@@ -1,12 +1,12 @@
 @extends('layouts.template')
 
-@section('title','dashboard')
+@section('title','Dashboard')
 
 @section('content')
     <div class="container">
         <div class="row card-dashboard">
             <div class="col-sm-3 text-center mt-5">
-                <div class="card text-white mb-3" style="max-width: 540px; background-color:#6c63ff;">
+                <div class="card text-white mb-3 bg-primary card-values">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-graph-up-arrow mt-4" viewBox="0 0 16 16">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-sm-3 text-center mt-5">
-                <div class="card text-white bg-success mb-3" style="max-width: 540px;">
+                <div class="card text-white bg-success mb-3 card-values">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-currency-dollar mt-4" viewBox="0 0 16 16">
@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-sm-3 text-center mt-5">
-                <div class="card text-white bg-danger mb-3" style="max-width: 540px;">
+                <div class="card text-white bg-danger mb-3 card-values">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-currency-dollar mt-4" viewBox="0 0 16 16">
@@ -62,7 +62,7 @@
             </div>
 
             <div class="col-sm-3 text-center mt-5">
-                <div class="card text-white bg-dark mb-3" style="max-width: 540px;">
+                <div class="card text-white bg-dark mb-3 card-values">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-currency-dollar mt-4" viewBox="0 0 16 16">
@@ -79,9 +79,11 @@
                 </div>
             </div>
         </div>
-        
-        <div class="display-chart mt-5">
-            <canvas id="myChart" width="400" height="100"></canvas>
+        <div class="row">
+            {{-- div para rederizar o gráfico --}}
+            <div class="col-lg-12  mt-5">
+                <canvas id="myChart" height="80"></canvas>
+            </div>
         </div>
     </div>
 @endsection
@@ -90,33 +92,33 @@
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
+            type: 'bar',
+            data: {
 
-            labels: <?php echo json_encode($months); ?>,
-            datasets: [{
-                label: 'Valor por mês',
-                data: <?php echo json_encode($datas); ?>,
+                labels: <?php echo json_encode($months); ?>,
+                datasets: [{
+                    label: 'Valor por mês',
+                    data: <?php echo json_encode($datas); ?>,
                 
-                backgroundColor: [
+                    backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',
                     'rgba(153, 102, 255, 0.2)',
                     'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
+                    ],
+                     borderColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
+                    ],
+                    borderWidth: 1
+                }]
+            },
             options: {
                 scales: {
                     yAxes: [{
@@ -128,4 +130,5 @@
             }
         });
     </script>
+
 @endsection

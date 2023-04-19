@@ -23,14 +23,14 @@ class ReleaseController extends Controller
 
     public function store(StoreUpdateReleaseFormRequest $request)
     {
-
         Release::create($request->all());
         return redirect()->route('releases.index')
         ->with('messageCreate', 'Lançamento cadastrado com sucesso !');
     }
+    
     public function edit($id)
     {
-        $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembor', 'Outubro', 'Novembro', 'Dezembro'];
+        $selectedMonths = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julio', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
         $selectedReleases = ['Despesa', 'Receita'];
 
         if(!$releases = Release::find($id))

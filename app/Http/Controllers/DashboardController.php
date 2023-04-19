@@ -11,7 +11,6 @@ class DashboardController extends Controller
 
     public function dash()
     {
-        
         $totalReleases = Release::count();
 
         $totalRevenues = Release::where('release_type', '=', 'Receita')->count();
@@ -47,7 +46,6 @@ class DashboardController extends Controller
         foreach($searchMonthValues as $searchMonthValue){
             $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
         }
-
 
         return view('dashboard.dashboard',[
            
