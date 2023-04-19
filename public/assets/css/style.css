@@ -92,8 +92,6 @@ body{
     margin-top: 5px;
 }
 
-
-
 .card-header{
     background-color: #6c63ff;
     color: #fff;
@@ -103,8 +101,6 @@ body{
     padding-top: 100px;
     /* border: 1px solid red; */
 }
-
-
 
 button a{
     text-decoration: none;
@@ -120,8 +116,7 @@ button a{
     background-color: #6c63ff;
 }
 
-table th
-{
+table th{
     color:#FFF;
 }
 
@@ -129,14 +124,9 @@ table th
     margin-right:1rem;
 }
 
-
-
-
 .list-releases{
-    padding-top: 65px;
+    padding-top: 90px;
 }
-
-
 
 table, tr .row-expenses{
     color:indianred;
@@ -151,3 +141,4 @@ table, tr .row-expenses{
     /* border: 1px solid red; */
     margin-bottom: -30px;
 }
+

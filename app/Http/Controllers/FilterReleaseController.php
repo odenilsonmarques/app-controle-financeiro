@@ -38,12 +38,8 @@ class FilterReleaseController extends Controller
 
         foreach($searchMonthValues as $searchMonthValue){
             $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
-            // dd($datas);
         }
-
-        // dd($datas);
-
-        // return view('releases.index', compact('releases','datas'));
+        
         return view('releases.index', compact('releases', 'dataForm','datas'));
     }
 
