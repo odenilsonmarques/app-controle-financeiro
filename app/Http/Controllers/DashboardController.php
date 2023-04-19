@@ -43,6 +43,10 @@ class DashboardController extends Controller
         ->get()
         ->toArray();
 
+        //definindo um valor padrão, caso não exista
+        $datas = [];
+        $data = $data ?? 0;
+
         foreach($searchMonthValues as $searchMonthValue){
             $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
         }
