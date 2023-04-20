@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container">
-        
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h1 style="text-align: center">Lançamentos</h1>
@@ -22,7 +21,6 @@
                             <th>Mês</th>
                         </tr>
                     </thead>
-                    
                     <tbody>
                         @foreach($datas as $data)
                             <tr style="text-align:left">
@@ -33,14 +31,12 @@
                                 <td>{{$data->month}}</td>
                             </tr>
                         @endforeach
-
                             <tr style="text-align: left;background-color:darkgray;">
                                 <td colspan="3"></td>
                                 <td>
                                    <strong>R$ {{number_format($soma, 2, ',', '.')}}</strong>
                                 </td>
                                 <td></td>
-
                             </tr>
                     </tbody>
                 </table>

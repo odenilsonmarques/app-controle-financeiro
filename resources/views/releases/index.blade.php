@@ -50,6 +50,7 @@
                 {{-- this code display the value total of month select --}}
                 @if(isset($_POST['month']))
                     @php
+                        $data = [];
                         $selectedMonth = $_POST['month'];
                     @endphp
                     @if(isset($datas[$selectedMonth]))

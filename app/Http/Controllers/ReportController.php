@@ -13,7 +13,6 @@ class ReportController extends Controller
 
         $soma = Release::sum('amount');
 
-        // dd($datas);
         return \PDF::loadView('reports.report', compact('datas', 'soma'))
         ->stream('lancamentos.pdf');
     }
