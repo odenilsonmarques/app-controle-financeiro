@@ -7,11 +7,6 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
-
-// Route::get('/', function () {
-//     return view('');
-// });
-
 Route::get('/', [SiteController::class, 'index'])->name('index');
 
 Route::get('/releases/dashboard',[DashboardController::class, 'dash'])->name('releases.dash');

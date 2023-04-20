@@ -13,10 +13,12 @@ class FilterReleaseController extends Controller
     {
         $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $releases = $release->search($dataForm,$this->totalPage);
+
+        $datas = [];
  
         $searchMonthValues = DB::table('releases')
         ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
-        // ->where('month', '=', $selectedMonths)
+        ->where('month', '=', $datas)
         ->groupBy('monthAll', 'month')
         ->orderBy(DB::raw('CASE (month)
                             WHEN "Janeiro" THEN 0
