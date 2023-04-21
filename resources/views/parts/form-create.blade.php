@@ -26,10 +26,10 @@
 <div class="row">
     <div class="col-sm-12 mb-3">
         <label for="mes" class="form-label">Mês</label>
-        <select name="month" id="month" class="form-select">
+        <select name="month" id="month" class="form-select" required>
             <option value="">---- Selecione ----</option>
             @foreach($months as $month)
-                <option value="{{$month}}" {{old('month') == $month ? ' selected':''}} required>{{$month}}</option>
+                <option value="{{$month}}" {{old('month') == $month ? ' selected':''}}>{{$month}}</option>
             @endforeach
         </select>
     </div>
