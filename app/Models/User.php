@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //methods to relate user with many releases
+    public function releases() 
+    {
+        return $this->hasMany(Release::class);
+    }
 }

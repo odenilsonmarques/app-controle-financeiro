@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Release;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class FilterReleaseController extends Controller
@@ -14,36 +15,38 @@ class FilterReleaseController extends Controller
         $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $releases = $release->search($dataForm,$this->totalPage);
 
-        $datas = [];
- 
-        $searchMonthValues = DB::table('releases')
-        ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
-        ->where('month', '=', $datas)
-        ->groupBy('monthAll', 'month')
-        ->orderBy(DB::raw('CASE (month)
-                            WHEN "Janeiro" THEN 0
-                            WHEN "Fevereiro" THEN 1
-                            WHEN "Março" THEN 2
-                            WHEN "Abril" THEN 3
-                            WHEN "Maio" THEN 4
-                            WHEN "Junho" THEN 5
-                            WHEN "Julho" THEN 6
-                            WHEN "Agosto" THEN 7
-                            WHEN "Setembro" THEN 8
-                            WHEN "Outubro" THEN 9
-                            WHEN "Novembro" THEN 10
-                            WHEN "Dezembro" THEN 11
-                            END','asc'))
-        ->orderBy('total', 'desc')
-        ->get()
-        ->toArray();
+        if(Auth::check()){
+            $datas = [];
+            $searchMonthValues = DB::table('releases')
+            ->where('user_id', auth()->user()->id)
+            ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
+            ->where('month', '=', $datas)
+            ->groupBy('monthAll', 'month')
+            ->orderBy(DB::raw('CASE (month)
+                                WHEN "Janeiro" THEN 0
+                                WHEN "Fevereiro" THEN 1
+                                WHEN "Março" THEN 2
+                                WHEN "Abril" THEN 3
+                                WHEN "Maio" THEN 4
+                                WHEN "Junho" THEN 5
+                                WHEN "Julho" THEN 6
+                                WHEN "Agosto" THEN 7
+                                WHEN "Setembro" THEN 8
+                                WHEN "Outubro" THEN 9
+                                WHEN "Novembro" THEN 10
+                                WHEN "Dezembro" THEN 11
+                                END','asc'))
+            ->orderBy('total', 'desc')
+            ->get()
+            ->toArray();
 
-        foreach($searchMonthValues as $searchMonthValue){
-            $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
+            foreach($searchMonthValues as $searchMonthValue){
+                $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
+            }
+            return view('releases.index', compact('releases', 'dataForm','datas'));
+        }else{
+            return redirect()->route('login');
         }
-        
-        return view('releases.index', compact('releases', 'dataForm','datas'));
     }
-
 }
 
