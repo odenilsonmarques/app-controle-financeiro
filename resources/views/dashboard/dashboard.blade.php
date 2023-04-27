@@ -2,8 +2,10 @@
 
 @section('title','Dashboard')
 
+
 @section('content')
     <div class="container">
+       
         <div class="row card-dashboard">
             <div class="col-sm-3 text-center mt-5">
                 <div class="card text-white mb-3 bg-primary card-values">
@@ -130,5 +132,4 @@
             }
         });
     </script>
-
 @endsection

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateReleaseFormRequest;
-use App\Models\Release;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Release;
+
+
 
 class ReleaseController extends Controller
 {
@@ -11,8 +14,12 @@ class ReleaseController extends Controller
 
     public function index(Release $release)
     {
-        $releases = Release::paginate($this->totalPage);                          
-        return view('releases.index',compact('releases'));
+        if(Auth::check()){
+            $releases = Auth::user()->releases()->paginate($this->totalPage);                          
+            return view('releases.index',compact('releases'));
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     public function create() 
@@ -23,6 +30,9 @@ class ReleaseController extends Controller
 
     public function store(StoreUpdateReleaseFormRequest $request)
     {
+        // Adiciona o ID do usuário ao array de dados da solicitação
+        $request->merge(['user_id' => auth()->id()]);
+        
         Release::create($request->all());
         return redirect()->route('releases.index')
         ->with('messageCreate', 'Lançamento cadastrado com sucesso !');

@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="container">
+        @if(Auth::user())
         <div class="row">
             @include('includes.validations-index')
             <div class="col-sm-12">
@@ -51,7 +52,7 @@
                 @if(isset($_POST['month']))
                     @php
                         $data = [];
-                        $selectedMonth = $_POST['month'];
+                        $selectedMonth = $_POST['month']
                     @endphp
                     @if(isset($datas[$selectedMonth]))
                         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
@@ -129,5 +130,6 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 @endsection

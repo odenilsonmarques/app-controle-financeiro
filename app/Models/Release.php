@@ -15,7 +15,15 @@ class Release extends Model
         'description',
         'amount',
         'month',
+        'user_id',
     ];
+
+    // method to relate one or more releases to a single user
+    public function user() 
+    {
+        return $this->belongsTo(User::class);
+    }
+
 
     //utilizando o recurso mutators para especificar os padrões que desejo inserir na banco de dados
     //utilizei o nome das variaveis igual aos campo, mas poderia ser outro nome
@@ -42,6 +50,9 @@ class Release extends Model
             if(isset($search['person'])){
                 $query->where('person', $search['person']);
             }
+
+             // adicionando a condição para buscar apenas os lançamentos do usuário logado
+        $query->where('user_id', auth()->user()->id);
         })
         // ->toSql(); dd($listReleases);
         ->paginate($totalPage);
