@@ -142,3 +142,6 @@ table, tr .row-expenses{
     margin-bottom: -30px;
 }
 
+.nav-item.nameUser{
+    columns: red;
+}

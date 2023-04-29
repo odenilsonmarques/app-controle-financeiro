@@ -42,6 +42,9 @@
                                         {{ __('Sair') }}
                                     </x-responsive-nav-link>
                                 </form>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link"> Olá, {{ Auth::user()->name }}</a>
                             </li>
                         @else
                             <li class="nav-item">
