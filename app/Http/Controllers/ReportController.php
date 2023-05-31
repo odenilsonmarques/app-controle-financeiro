@@ -12,13 +12,14 @@ class ReportController extends Controller
     {
         if(Auth::check()){
             $datas = Auth::user()->releases;
-            $soma = Auth::user()->releases()->sum('amount');
+            $sumExpenseValues = Auth::user()->releases()->where('release_type', '=', 'Despesa')->sum('amount');
+            $sumRenevueValues = Auth::user()->releases()->where('release_type', '=', 'Receita')->sum('amount');
+            $balance = $sumRenevueValues - $sumExpenseValues;
 
-            return \PDF::loadView('reports.report', compact('datas', 'soma'))
+            return \PDF::loadView('reports.report', compact('datas', 'sumExpenseValues', 'sumRenevueValues','balance'))
             ->stream('lancamentos.pdf');
         }else{
             return redirect()->route('login');
         }
-        
     }
 }
