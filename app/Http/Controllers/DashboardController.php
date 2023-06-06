@@ -21,34 +21,26 @@ class DashboardController extends Controller
 
             $months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
             $searchMonthValues = DB::table('releases')
-            ->where('user_id', auth()->user()->id)
-            ->select(DB::raw('(month) as monthAll'), 'month', DB::raw('SUM(amount) as total'))
-            ->groupBy('monthAll', 'month')
-            ->orderBy(DB::raw('CASE (month)
-                                WHEN "Janeiro" THEN 0
-                                WHEN "Fevereiro" THEN 1
-                                WHEN "Março" THEN 2
-                                WHEN "Abril" THEN 3
-                                WHEN "Maio" THEN 4
-                                WHEN "Junho" THEN 5
-                                WHEN "Julho" THEN 6
-                                WHEN "Agosto" THEN 7
-                                WHEN "Setembro" THEN 8
-                                WHEN "Outubro" THEN 9
-                                WHEN "Novembro" THEN 10
-                                WHEN "Dezembro" THEN 11
-                                END','asc'))
-            ->orderBy('total', 'desc')
-            ->get()
-            ->toArray();
+                ->where('user_id', auth()->user()->id)
+                ->select('month', DB::raw('SUM(CASE WHEN release_type = "Receita" THEN amount ELSE 0 END) as revenue'), DB::raw('SUM(CASE WHEN release_type = "Despesa" THEN amount ELSE 0 END) as expense'))
+                ->groupBy('month')
+                ->orderByRaw('FIELD(month, "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro")')
+                ->get();
 
-            //definindo um valor padrão, caso não exista
-            $datas = [];
-            $data = $data ?? 0;
+                $revenues = [];
+                $expenses = [];
 
-            foreach($searchMonthValues as $searchMonthValue){
-                $datas[$searchMonthValue->monthAll] = $searchMonthValue->total;
-            }
+                foreach ($months as $month) {
+                    $searchedMonth = $searchMonthValues->firstWhere('month', $month);
+
+                    if ($searchedMonth) {
+                        $revenues[] = $searchedMonth->revenue;
+                        $expenses[] = $searchedMonth->expense;
+                    } else {
+                        $revenues[] = 0;
+                        $expenses[] = 0;
+                    }
+                }
 
             return view('dashboard.dashboard',[
             
@@ -57,10 +49,11 @@ class DashboardController extends Controller
                 'totalExpenses'=>$totalExpenses,
                 'sumRenevueValues'=>$sumRenevueValues,
                 'sumExpenseValues'=>$sumExpenseValues,
-                'datas'=>$datas,
                 'months'=>$months,
-                
+                'revenues' =>$revenues,
+                'expenses' =>$expenses,
             ]);
+
         }else {
             return redirect()->route('login');
         }
